@@ -14,9 +14,6 @@ import java.util.UUID;
  */
 public class Person {
 
-    protected double height,
-            weight,
-            bodyFat;
     protected String name;
     protected LocalDate birthday;
     protected char sex;
@@ -31,16 +28,12 @@ public class Person {
 
     /**
      *
-     * @param height
-     * @param weight
      * @param name
      * @param birthday
      * @param sex
      */
-    public Person(double height, double weight, String name, LocalDate birthday,
-            char sex) {
-        this.height = height;
-        this.weight = weight;
+    public Person(String name, LocalDate birthday, char sex) {
+
         this.name = name;
         this.birthday = birthday;
         this.sex = sex;
@@ -54,30 +47,6 @@ public class Person {
      */
     public UUID getID() {
         return ID;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public double getHeight() {
-        return height;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public double getWeight() {
-        return weight;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public double getBodyFat() {
-        return bodyFat;
     }
 
     /**
@@ -115,23 +84,6 @@ public class Person {
 
     }
 
-    /**
-     *
-     * @param newWeight
-     */
-    public void updateWeight(double newWeight) {
-        weight = newWeight;
-    }
-
-    /**
-     *
-     * @param newFat
-     */
-    public void updateBodyFat(double newFat) {
-        bodyFat = newFat;
-
-    }
-
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
@@ -141,8 +93,6 @@ public class Person {
         str.append("Birthday: ").append(birthday).append("\n");
         str.append("Age: ").append(getAge()).append("\n");
         str.append("Sex: ").append(sex).append("\n");
-        str.append("Height: ").append(height).append("\n");
-        str.append("Weight: ").append(weight).append("\n");
 
         return str.toString();
 
@@ -153,9 +103,9 @@ public class Person {
      */
     public static void main(String[] args) {
         LocalDate jDay = LocalDate.of(1990, 8, 28);
-        Person josh = new Person(81, 374, "Josh Acker", jDay, 'm');
+        //Person josh = new Person(81, 374, "Josh Acker", jDay, 'm');
 
-        System.out.println(josh.toString());
+        //System.out.println(josh.toString());
     }
 
 }
