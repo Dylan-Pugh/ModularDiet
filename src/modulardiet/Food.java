@@ -78,6 +78,10 @@ public class Food {
     public void updateServings(double newSize){
         servingSize = newSize;
     }
+    
+    public void reName(String newName){
+        name = newName;
+    }
 
     @Override
     public String toString() {

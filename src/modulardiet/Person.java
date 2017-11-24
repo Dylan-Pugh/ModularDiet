@@ -18,13 +18,6 @@ public class Person {
     protected LocalDate birthday;
     protected char sex;
     protected UUID ID;
-    //to-do - add recipeBook parameter
-
-    /**
-     * Default constructor
-     */
-    public Person() {
-    }
 
     /**
      *
