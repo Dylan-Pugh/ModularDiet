@@ -25,9 +25,9 @@ public class ModularDiet {
         int choice;
         do {
             System.out.print("*************************\n"
-                    + "* 1. Select Trainee        *\n"
-                    + "* 2. Create New Trainee    *\n"
-                    + "* 3. Quit                  *\n"
+                    + "* 1. Select Trainee     *\n"
+                    + "* 2. Create New Trainee *\n"
+                    + "* 3. Quit               *\n"
                     + "*************************\n"
                     + "  Enter Choice --> ");
             choice = scan.nextInt();
@@ -36,7 +36,8 @@ public class ModularDiet {
         return choice;
     }
 
-    public static void addTrainee(Scanner scan) {
+    public static void addTrainee() {
+        Scanner scan = new Scanner(System.in);
 
         String name;
         LocalDate birthday;
@@ -87,6 +88,22 @@ public class ModularDiet {
 
     }
 
+    public static void listTrainees() {
+
+        if (trainees.isEmpty()) {
+            System.out.println("No trainees found, please create one.");
+        } else {
+            System.out.println("Please select trainee:");
+            for (UUID ID : trainees.keySet()) {
+                System.out.println("ID: " + trainees.get(ID).getID() + " Name: " + trainees.get(ID).getName());
+            }
+        }
+        
+        //at this point, we can access the options for a given trainee
+        //write method showOptions in Trainee
+        //call method for given trainee like this: trainees.get(ID).showOptions();
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -98,25 +115,25 @@ public class ModularDiet {
             int choice = getMenuChoice(stdIn);
             switch (choice) {
                 case 1:
-                    System.out.println("Not Yet Implemented");
+                    listTrainees();
                     break;
                 case 2:
-                    addTrainee(stdIn);
+                    addTrainee();
                     break;
                 case 3:
                     finished = true;
 
             }
         }//end while 
-        
+
         System.out.println("Testing addTrainee: ");
-        
-        StringBuilder str  = new StringBuilder();
-        for (UUID currentKey : trainees.keySet()){
+
+        StringBuilder str = new StringBuilder();
+        for (UUID currentKey : trainees.keySet()) {
             str.append(trainees.get(currentKey).toString());
             str.append(trainees.get(currentKey).diet.toString());
         }
-        
+
         System.out.println(str.toString());
 
         Diet joshDiet = new Diet(2000.0, 30.0, 50.0, 20.0);
