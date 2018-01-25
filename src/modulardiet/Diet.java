@@ -65,12 +65,7 @@ public class Diet {
         remainingCarb = (totalCarb - addedFood.getCarbs());
         remainingFat = (totalFat - addedFood.getFat());
 
-        if (remainingCal > 0 && remainingProtein > 0 && remainingCarb > 0 && remainingFat > 0) {
-            return true;
-        } else {
-
-            return false;
-        }
+        return remainingCal > 0 && remainingProtein > 0 && remainingCarb > 0 && remainingFat > 0;
     }
 
 
